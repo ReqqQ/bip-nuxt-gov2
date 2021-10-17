@@ -16,19 +16,15 @@ func GetUser(c *gin.Context) {
 	}
 
 	var users []models.UserModel
-
-	query.Next()
-	{
+	defer query.Close()
+	for query.Next() {
 		var user models.UserModel
-		err := query.Scan(&user.Id, &user.Name)
-		if err != nil {
-			return
-		} else {
-			users = append(users, user)
+		if err := query.Scan(&user.Id, &user.Name); err != nil {
+			panic(err.Error())
 		}
+		users = append(users, user)
 	}
-	query.Close()
-	db.Close()
+
 	c.JSON(http.StatusOK, gin.H{
 		"data": users,
 	})

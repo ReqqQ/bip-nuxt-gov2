@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="acdbb2b4-73c1-4186-b9f4-33a6e98fde9d" name="Default Changelist" comment="fixs">
+    <list default="true" id="acdbb2b4-73c1-4186-b9f4-33a6e98fde9d" name="Default Changelist" comment="new endpoint users before refactor">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/controller/UserController.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controller/UserController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/database.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/UserDbRepository.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/UserModel.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/UserModel.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +19,11 @@
   </component>
   <component name="GOROOT" url="file://$PROJECT_DIR$/../go" />
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GoLibraries">
@@ -66,7 +67,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixs" />
+    <MESSAGE value="new endpoint users before refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="new endpoint users before refactor" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
