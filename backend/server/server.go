@@ -13,8 +13,14 @@ var Router = gin.Default()
 
 func RunServer() {
 	runFrontEnd()
+
 	Router.Run(serverPort)
 }
+
 func runFrontEnd() {
-	Router.Use(static.Serve(serverPrefix, static.LocalFile(frontEndFolder, true)))
+	Router.Use(setStaticFrontEnd())
+}
+
+func setStaticFrontEnd() gin.HandlerFunc {
+	return static.Serve(serverPrefix, static.LocalFile(frontEndFolder, true))
 }
