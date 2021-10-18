@@ -7,6 +7,6 @@ import (
 func GetControllers() {
 	api := server.Router.Group("/api")
 	{
-		api.GET("/", GetUser)
+		api.GET("/users", GetUsers)
 	}
 }
