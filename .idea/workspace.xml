@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="acdbb2b4-73c1-4186-b9f4-33a6e98fde9d" name="Default Changelist" comment="endpoint posts">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/PostModel.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/PostModel.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/services/posts/PostsDbService.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/posts/PostsDbService.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/services/posts/PostsService.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/posts/PostsService.go" afterDir="false" />
     </list>
@@ -27,6 +25,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GithubPullRequestsUISettings">
     <option name="recentNewPullRequestHead">

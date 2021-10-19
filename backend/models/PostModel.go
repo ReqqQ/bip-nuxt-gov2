@@ -1,7 +1,7 @@
 package models
 
 type PostModel struct {
-	Id    int
+	ID    int
 	Title string
 }
 
