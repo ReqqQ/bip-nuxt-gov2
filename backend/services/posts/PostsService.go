@@ -2,7 +2,7 @@ package posts
 
 import (
 	"cookieApi/backend/models"
-	"database/sql"
+	"github.com/jmoiron/sqlx"
 )
 
 var post models.PostModel
@@ -14,7 +14,7 @@ func GetPosts() []models.PostModel {
 	return post.GetPosts()
 }
 
-func transformQueryDataToModel(query *sql.Rows) {
+func transformQueryDataToModel(query *sqlx.Rows) {
 	for query.Next() {
 		validateData(getQueryScan(query))
 		models.AddPost(post)
@@ -22,8 +22,8 @@ func transformQueryDataToModel(query *sql.Rows) {
 	query.Close()
 }
 
-func getQueryScan(query *sql.Rows) error {
-	return query.Scan(&post.ID, &post.Title)
+func getQueryScan(query *sqlx.Rows) error {
+	return query.StructScan(&post)
 }
 
 func validateData(queryError error) {

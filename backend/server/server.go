@@ -5,7 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-const serverPort = ":3000"
+const serverPort = ":8080"
 const serverPrefix = "/"
 const frontEndFolder = "./frontend"
 

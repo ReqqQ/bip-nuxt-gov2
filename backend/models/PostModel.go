@@ -1,8 +1,10 @@
 package models
 
 type PostModel struct {
-	ID    int
-	Title string
+	ID           int
+	Title        string
+	Category     string
+	CategoryRank int `json:"-" db:"category_rank"`
 }
 
 var posts []PostModel
