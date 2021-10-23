@@ -7,13 +7,20 @@ import (
 
 var post models.PostModel
 
-func GetPosts() []models.PostModel {
+func GetPosts(queryParams []string) map[string][]models.PostModel {
 	post.Reset()
-	transformQueryDataToModel(getPostsFromDB())
-
-	return post.GetPosts()
+	transformQueryDataToModel(getPostsFromDB(queryParams))
+	posts := post.GetPosts()
+	return transformPosts(posts)
 }
+func transformPosts(posts []models.PostModel) map[string][]models.PostModel {
+	transformedArray := make(map[string][]models.PostModel)
+	for _, element := range posts {
+		transformedArray[element.Category] = append(transformedArray[element.Category], element)
+	}
 
+	return transformedArray
+}
 func transformQueryDataToModel(query *sqlx.Rows) {
 	for query.Next() {
 		validateData(getQueryScan(query))
