@@ -3,12 +3,14 @@ package posts
 import (
 	"cookieApi/backend/database"
 	"github.com/jmoiron/sqlx"
-	"strings"
 )
 
 func getPostsFromDB(categoryTypes []string) *sqlx.Rows {
 	db := database.GetDB()
-	query, queryError := db.Queryx(getPostsQuery(), strings.Join(categoryTypes, ","))
+	queryIn, args, _ := sqlx.In(getPostsQuery(), categoryTypes)
+	queryRebind := sqlx.Rebind(sqlx.QUESTION, queryIn)
+
+	query, queryError := db.Queryx(queryRebind, args...)
 	validateData(queryError)
 
 	return query

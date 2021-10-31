@@ -4,9 +4,9 @@
     <list default="true" id="acdbb2b4-73c1-4186-b9f4-33a6e98fde9d" name="Default Changelist" comment="endpoint posts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/controller/PostsController.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controller/PostsController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/PostModel.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/PostModel.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/services/posts/PostsDbService.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/posts/PostsDbService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/services/posts/PostsService.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/posts/PostsService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

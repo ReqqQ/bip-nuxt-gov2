@@ -7,7 +7,7 @@ import (
 )
 
 func GetPosts(c *gin.Context) {
-	categoryPosts, _ := c.GetQueryArray("categoryPosts[]")
+	categoryPosts, _ := c.GetQueryArray("categoryPosts")
 	c.JSON(http.StatusOK, gin.H{
 		"data": posts.GetPosts(categoryPosts),
 	})
