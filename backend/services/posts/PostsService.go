@@ -3,6 +3,7 @@ package posts
 import (
 	"cookieApi/backend/models"
 	"github.com/jmoiron/sqlx"
+	"strconv"
 )
 
 var post models.PostModel
@@ -10,9 +11,15 @@ var post models.PostModel
 func GetPosts(queryParams []string) map[string][]models.PostModel {
 	post.Reset()
 	transformQueryDataToModel(getPostsFromDB(queryParams))
-	posts := post.GetPosts()
-	return transformPosts(posts)
+
+	return transformPosts(post.GetPosts())
 }
+
+func ConvertStringToBool(queryKey string, error bool) bool {
+	convertedKey, _ := strconv.ParseBool(queryKey)
+	return convertedKey
+}
+
 func transformPosts(posts []models.PostModel) map[string][]models.PostModel {
 	transformedArray := make(map[string][]models.PostModel)
 	for _, element := range posts {

@@ -8,12 +8,10 @@ import (
 func getPostsFromDB(categoryTypes []string) *sqlx.Rows {
 	db := database.GetDB()
 	queryIn, args, _ := sqlx.In(getPostsQuery(), categoryTypes)
-	queryRebind := sqlx.Rebind(sqlx.QUESTION, queryIn)
-
-	query, queryError := db.Queryx(queryRebind, args...)
+	data, queryError := db.Queryx(sqlx.Rebind(sqlx.QUESTION, queryIn), args...)
 	validateData(queryError)
 
-	return query
+	return data
 }
 
 func getPostsQuery() string {
@@ -25,5 +23,5 @@ func getPostsQuery() string {
 		"row_number() over (partition by category order by created_at desc) as category_rank, " +
 		"created_at  from posts p where p.category IN(?)" +
 		") ranks " +
-		"where category_rank <= 5"
+		"where category_rank <= 6"
 }
