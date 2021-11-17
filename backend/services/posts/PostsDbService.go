@@ -10,9 +10,11 @@ func getGroupPosts(categoryTypes []string) *sqlx.Rows {
 }
 
 func getPostsByName(postName string) *sqlx.Rows {
-	var data []string
-	data = append(data, postName)
-	return getFromDB(data, getGroupPostsByNameQuery())
+	db := database.GetDB()
+	data, queryError := db.Queryx(getGroupPostsByNameQuery(), postName)
+	validateData(queryError)
+
+	return data
 }
 
 func getAllPosts() *sqlx.Rows {
@@ -23,7 +25,7 @@ func getAllPosts() *sqlx.Rows {
 	return data
 }
 
-func getFromDB(categoryTypes []string, query string) *sqlx.Rows {
+func getFromDB(categoryTypes interface{}, query string) *sqlx.Rows {
 	db := database.GetDB()
 	queryIn, args, _ := sqlx.In(query, categoryTypes)
 	data, queryError := db.Queryx(sqlx.Rebind(sqlx.QUESTION, queryIn), args...)
@@ -37,7 +39,7 @@ func getAllPostsQuery() string {
 }
 
 func getGroupPostsByNameQuery() string {
-	return "select id, title, category, created_at\nfrom posts p\nwhere MATCH(p.title) AGAINST('?' IN NATURAL LANGUAGE MODE)"
+	return "select id, title, category, created_at\nfrom posts p\nwhere MATCH(p.title) AGAINST(? IN NATURAL LANGUAGE MODE)"
 }
 
 func getGroupPostsQuery() string {
