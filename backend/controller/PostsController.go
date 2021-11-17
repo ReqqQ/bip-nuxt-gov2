@@ -6,16 +6,18 @@ import (
 	"net/http"
 )
 
-func GetPosts(c *gin.Context) {
-	categoryPosts, _ := c.GetQueryArray("categoryPosts")
-	isGroupByCategory := posts.ConvertStringToBool(c.GetQuery("isGroupByCategory"))
+var dbPosts interface{}
 
-	data := posts.GetPosts(categoryPosts)
+func GetPosts(c *gin.Context) {
+	searchQuery, categoryPosts, isGroupByCategory := posts.GetApiParams(c)
+
 	if isGroupByCategory {
-		data = nil
+		dbPosts = posts.GroupByCategory(categoryPosts)
+	} else {
+		dbPosts = posts.GetPosts(searchQuery)
 	}
 
 	c.JSON(http.StatusOK, gin.H{
-		"data": data,
+		"data": dbPosts,
 	})
 }

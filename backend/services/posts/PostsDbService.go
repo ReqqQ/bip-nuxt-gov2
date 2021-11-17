@@ -5,16 +5,42 @@ import (
 	"github.com/jmoiron/sqlx"
 )
 
-func getPostsFromDB(categoryTypes []string) *sqlx.Rows {
+func getGroupPosts(categoryTypes []string) *sqlx.Rows {
+	return getFromDB(categoryTypes, getGroupPostsQuery())
+}
+
+func getPostsByName(postName string) *sqlx.Rows {
+	var data []string
+	data = append(data, postName)
+	return getFromDB(data, getGroupPostsByNameQuery())
+}
+
+func getAllPosts() *sqlx.Rows {
 	db := database.GetDB()
-	queryIn, args, _ := sqlx.In(getPostsQuery(), categoryTypes)
+	data, queryError := db.Queryx(getAllPostsQuery())
+	validateData(queryError)
+
+	return data
+}
+
+func getFromDB(categoryTypes []string, query string) *sqlx.Rows {
+	db := database.GetDB()
+	queryIn, args, _ := sqlx.In(query, categoryTypes)
 	data, queryError := db.Queryx(sqlx.Rebind(sqlx.QUESTION, queryIn), args...)
 	validateData(queryError)
 
 	return data
 }
 
-func getPostsQuery() string {
+func getAllPostsQuery() string {
+	return "select id, title, category, created_at from posts"
+}
+
+func getGroupPostsByNameQuery() string {
+	return "select id, title, category, created_at\nfrom posts p\nwhere MATCH(p.title) AGAINST('?' IN NATURAL LANGUAGE MODE)"
+}
+
+func getGroupPostsQuery() string {
 	return "select * from ( " +
 		"select " +
 		"id, " +
