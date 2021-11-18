@@ -7,13 +7,15 @@ import (
 	"strconv"
 )
 
+const falseBoolNumber = 0
+
 func GetApiParams(c *gin.Context) (string, []string, bool) {
 	return validateApiParams(c)
 }
 
 func convertStringToBool(queryKey string, error bool) bool {
 	if !error {
-		queryKey = string(0)
+		queryKey = string(falseBoolNumber)
 	}
 	convertedKey, _ := strconv.ParseBool(queryKey)
 	return convertedKey

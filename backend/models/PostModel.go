@@ -11,13 +11,16 @@ type PostModel struct {
 	CreatedAt    string
 }
 
+const defaultDateFormat = "02-January-2006 15:04:05"
+const falseBoolNumber = 0
+
 var posts []PostModel
 
 func (pm PostModel) Reset() {
 	posts = nil
 }
 func (pm *PostModel) transformDate() {
-	pm.CreatedAt = time.Unix(int64(pm.Timestamp), 0).Format("02-January-2006 15:04:05")
+	pm.CreatedAt = time.Unix(int64(pm.Timestamp), falseBoolNumber).Format(defaultDateFormat)
 }
 func AddPost(pm PostModel) {
 	pm.transformDate()

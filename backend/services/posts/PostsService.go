@@ -6,24 +6,30 @@ import (
 )
 
 var post models.PostModel
+var posts *sqlx.Rows
 
 func GroupByCategory(queryParams []string) map[string][]models.PostModel {
 	post.Reset()
-	transformQueryDataToModel(getGroupPosts(queryParams))
+	transformQueryDataToModel(getPostsByCategory(queryParams))
 
 	return transformPosts(post.GetPosts())
 }
 
 func GetPosts(postName string) []models.PostModel {
 	post.Reset()
-	var posts *sqlx.Rows
-	if postName == "" {
+	transformQueryDataToModel(getPosts(postName))
+
+	return post.GetPosts()
+}
+
+func getPosts(postName string) *sqlx.Rows {
+	if isEmptyPostName(postName) {
 		posts = getAllPosts()
 	} else {
 		posts = getPostsByName(postName)
 	}
-	transformQueryDataToModel(posts)
-	return post.GetPosts()
+
+	return posts
 }
 
 func getQueryScan(query *sqlx.Rows) error {

@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="acdbb2b4-73c1-4186-b9f4-33a6e98fde9d" name="Default Changelist" comment="endpoint posts">
+    <list default="true" id="acdbb2b4-73c1-4186-b9f4-33a6e98fde9d" name="Default Changelist" comment="endpoint posts before refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/PostModel.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/PostModel.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/services/posts/PostsDbService.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/posts/PostsDbService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/services/posts/PostsService.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/posts/PostsService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/services/posts/TransformService.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/posts/TransformService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/services/posts/ValidateService.go" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/posts/ValidateService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +90,25 @@
       <recent name="E:\cookieApiV2\backend\services\posts" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="cookieApiV2" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="cookieApiV2" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="DIRECTORY" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
@@ -104,7 +129,8 @@
     <MESSAGE value="fixs" />
     <MESSAGE value="new endpoint users before refactor" />
     <MESSAGE value="endpoint posts" />
-    <option name="LAST_COMMIT_MESSAGE" value="endpoint posts" />
+    <MESSAGE value="endpoint posts before refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="endpoint posts before refactor" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
