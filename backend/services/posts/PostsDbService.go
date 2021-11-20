@@ -7,9 +7,8 @@ import (
 
 func getPostsByCategory(categoryTypes []string) *sqlx.Rows {
 	db := database.GetDB()
-
 	queryIn, args, _ := sqlx.In(getGroupPostsQuery(), categoryTypes)
-	data, queryError := db.Queryx(sqlx.Rebind(sqlx.QUESTION, queryIn), args...)
+	data, queryError := db.Queryx(db.Rebind(queryIn), args...)
 	validateData(queryError)
 
 	return data

@@ -7,7 +7,7 @@ const emptyString = ""
 func validateApiParams(c *gin.Context) (string, []string, bool) {
 	categoryPosts, _ := c.GetQueryArray("categoryPosts")
 	isGroupByCategory := convertStringToBool(c.GetQuery("isGroupByCategory"))
-	searchQuery, _ := c.GetQuery("findPosts")
+	searchQuery, _ := c.GetQuery("postName")
 
 	return searchQuery, categoryPosts, isGroupByCategory
 }
